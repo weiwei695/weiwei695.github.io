@@ -5,6 +5,16 @@
     <meta charset="utf-8">
     <style type="text/css">
         html, body, #map-canvas { height: 95%; margin: 0;padding:20px 0px 0px 0px;}
+        #panel {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            margin-left: -180px;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+        }
     </style>
 
     <script type="text/javascript"
@@ -79,6 +89,11 @@
     </script>
 </head>
 <body>
+<div id="panel">
+    <input id="address" type="textbox" value="Sydney, NSW">
+    <input type="button" value="Geocode" onclick="codeAddress()">
+</div>
+
 <div id="map-canvas"></div>
 </body>
 </html>
