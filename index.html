@@ -8,11 +8,11 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOx-7cjZilQ3j3gCAHwE2wFjOLzz9HBXY">
     </script>
     <script type="text/javascript">
-        var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+        var myCenter={ lat: -34.397, lng: 150.644};
         function initialize() {
             var mapOptions = {
                 center: myCenter,
-                zoom: 5
+                zoom: 8
             };
             var map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
