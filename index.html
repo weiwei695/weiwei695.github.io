@@ -10,24 +10,27 @@
     </script>
     <script type="text/javascript">
         var myCenter={ lat: -34.397, lng: 150.644};
-        var img = document.createElement("img")
-        img.src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/pink-jelly-icons-sports-hobbies/046594-pink-jelly-icon-sports-hobbies-ball-beach.png";
+        var stockholm = new google.maps.LatLng(59.32522, 18.07002);
+        var parliament = new google.maps.LatLng(59.327383, 18.06747);
+        var marker;
+        var map;
         function initialize() {
             var mapOptions = {
-                center: myCenter,
+                center: stockholm,
                 zoom: 8
             };
-            var map = new google.maps.Map(document.getElementById('map-canvas'),
+            map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
-            var marker=new google.maps.Marker({
-                position:myCenter,
+            marker=new google.maps.Marker({
+                map:map,
+                position:parliament,
                 draggable:true,
                 animation: google.maps.Animation.DROP
 
                 /*animation:google.maps.Animation.BOUNCE*/
             });
             google.maps.event.addListener(marker, 'click', toggleBounce);
-            /*--marker.setMap(map)--*/
+           
         }
         function toggleBounce() {
 
