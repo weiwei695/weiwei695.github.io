@@ -21,15 +21,7 @@
             };
             var map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
-            var marker=new google.maps.Marker({
-                map:map,
-                title: 'Double Click to zoom',
-                position:parliament,
-                draggable:true,
-                animation: google.maps.Animation.DROP
 
-                /*animation:google.maps.Animation.BOUNCE*/
-            });
             google.maps.event.addListener(marker, 'click', toggleBounce);
             google.maps.event.addListener(map, 'rightclick', function() {
                 var zoom = map.getZoom();
@@ -43,10 +35,9 @@
                 map.setZoom(18);
                 map.setCenter(marker.getPosition());
             });
-            google.maps.event.addListener(map, 'rightclick', function(e) {
+            google.maps.event.addListener(map, 'rightclick',function(e) {
                 placeMarker(e.LatLng,map);
                 });
-
         }
         function toggleBounce() {
 
