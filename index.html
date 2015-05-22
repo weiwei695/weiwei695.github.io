@@ -33,7 +33,7 @@
             google.maps.event.addListener(marker, 'click', toggleBounce);
             google.maps.event.addListener(map,'center_changed',function(){
                 window.setTimeout(function(){
-                    map.panTo(marker.getPosition());
+                    map.panTo(map.getPosition());
                 },3000);
             });
             google.maps.event.addListener(marker, 'dblclick', function(){
