@@ -31,11 +31,7 @@
                 /*animation:google.maps.Animation.BOUNCE*/
             });
             google.maps.event.addListener(marker, 'click', toggleBounce);
-            google.maps.event.addListener(map,'center_changed',function(){
-                window.setTimeout(function(){
-                    map.panTo(map.getPosition());
-                },3000);
-            });
+            
             google.maps.event.addListener(marker, 'dblclick', function(){
                 map.setZoom(18);
                 map.setCenter(marker.getPosition());
