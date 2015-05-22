@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
     <style type="text/css">
         html, body, #map-canvas { height: 100%; margin: 0;padding:20px 0px 0px 0px;}
     </style>
@@ -43,7 +45,7 @@
                 map.setZoom(18);
                 map.setCenter(marker.getPosition());
             });
-            google.maps.event.addListener(map, 'dbclick', function(e) {
+            google.maps.event.addListener(map, 'rightclick', function(e) {
                 placeMarker(e.LatLng,map);
                 });
 
