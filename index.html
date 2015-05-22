@@ -43,6 +43,14 @@
                 map.setZoom(18);
                 map.setCenter(marker.getPosition());
             });
+            google.maps.event.addListener(map, 'click', function(event) {
+                var zoom = map.getZoom();
+                setTimeout(function () {
+                    if (map.getZoom() != zoom) { // zooms are the same so they didn't double right click.
+                        placeMarker(event.latLng); // <-- your code here
+                    }
+                }, 300)
+            });
         }
         function toggleBounce() {
 
@@ -52,15 +60,8 @@
                 marker.setAnimation(google.maps.Animation.BOUNCE);
             }
         }
-       
-        google.maps.event.addListener(map, 'click', function(event) {
-            var zoom = map.getZoom();
-            setTimeout(function () {
-                if (map.getZoom() != zoom) { // zooms are the same so they didn't double right click.
-                    placeMarker(event.latLng); // <-- your code here
-                }
-            }, 300)
-        });
+
+
 
 
         google.maps.event.addDomListener(window, 'load', initialize);
