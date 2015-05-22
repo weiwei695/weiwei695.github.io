@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+
     <style type="text/css">
         html, body, #map-canvas {height:100% ;margin: 0;padding:0px;}
         #panel {
@@ -14,7 +15,7 @@
             background-color: #009900;
             padding: 0px;
             border: 2px solid #00CC00;
-            opacity: 0.6;
+            opacity: 0.4;
         }
     </style>
     <style>
@@ -31,6 +32,8 @@
         }
 
     </style>
+    <sidebar ng-model="sidebar" ng-mouseleave="hide_sidebar()">
+        </sidebar>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true">
     </script>
@@ -109,5 +112,6 @@
 </div>
 <div id="directions-panel"></div>
 <div id="map-canvas"></div>
+
 </body>
 </html>
