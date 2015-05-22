@@ -4,11 +4,13 @@
     <style type="text/css">
         html, body, #map-canvas { height: 100%; margin: 0;padding:20px 0px 0px 0px;}
     </style>
+
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOx-7cjZilQ3j3gCAHwE2wFjOLzz9HBXY">
     </script>
     <script type="text/javascript">
         var myCenter={ lat: -34.397, lng: 150.644};
+        var img=$('<img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/pink-jelly-icons-sports-hobbies/046594-pink-jelly-icon-sports-hobbies-ball-beach.png" />');
         function initialize() {
             var mapOptions = {
                 center: myCenter,
@@ -18,7 +20,7 @@
                     mapOptions);
             var marker=new google.maps.Marker({
                 position:myCenter,
-                icon:'pinkball.png',
+                icon:img,
                 animation:google.maps.Animation.BOUNCE
             });
 
