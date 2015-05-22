@@ -18,22 +18,8 @@
             opacity: 0.4;
         }
     </style>
-    <style>
-        #directions-panel {
-            height: 20%;
-            float: bottom;
-            width: 100%;
-            overflow: auto;
-            opacity:0.3;
-        }
 
-        #map-canvas {
-            margin-bottom: 0px;
-        }
 
-    </style>
-    <sidebar ng-model="sidebar" ng-mouseleave="hide_sidebar()">
-        </sidebar>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true">
     </script>
@@ -110,7 +96,7 @@
     <input id="address" type="textbox" value="Sydney, NSW">
     <input type="button" value="Geocode" onclick="codeAddress()">
 </div>
-<div id="directions-panel"></div>
+
 <div id="map-canvas"></div>
 
 </body>
