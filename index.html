@@ -4,7 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style type="text/css">
-        html, body, #map-canvas { height: 100%; margin: 0;padding:20px 0px 0px 0px;}
+        html, body, #map-canvas { height: 95%; margin: 0;padding:20px 0px 0px 0px;}
     </style>
 
     <script type="text/javascript"
@@ -15,12 +15,15 @@
         var stockholm = new google.maps.LatLng(59.32522, 18.07002);
         var parliament = new google.maps.LatLng(59.327383, 18.06747);
         var map;
-
+        var geocoder;
         function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
             var mapOptions = {
-                center: stockholm,
-                zoom: 8
-            };
+                zoom: 8,
+                center: latlng
+            }
+
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
 
@@ -39,7 +42,7 @@
             });
             google.maps.event.addListener(map, 'click',function(e){
                 placeMarker(e.latLng,map);
-                });
+            });
         }
        /* function toggleBounce() {
 
@@ -56,7 +59,20 @@
             });
             map.panTo(position);
         }
-
+        function codeAddress() {
+            var address = document.getElementById('address').value;
+            geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
 
 
         google.maps.event.addDomListener(window, 'load', initialize);
