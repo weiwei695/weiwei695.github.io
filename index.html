@@ -40,14 +40,14 @@
                 placeMarker(e.latLng,map);
                 });
         }
-        function toggleBounce() {
+       /* function toggleBounce() {
 
             if (marker.getAnimation() != null) {
                 marker.setAnimation(null);
             } else {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
             }
-        }
+        }*/
         function placeMarker(position, map) {
             var marker = new google.maps.Marker({
                 position: position,
