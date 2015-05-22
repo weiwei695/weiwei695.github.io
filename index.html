@@ -1,50 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-
-
-    <title>Maplot</title>
-    <style type="text/css">
-        html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
-    </style>
-    <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCru4jGbBmG88tSbW4Y5-xpTZGzG0Tjepc">
-    </script >
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?region=GB">
-    </script >
+<head>
+    <script
+            src="http://maps.googleapis.com/maps/api/js">
+    </script>
 
     <script>
-        function initialize() {
-            var mapOptions = {
-                zoom: 7,
-                center: new google.maps.LatLng(51.508742,-0.120850)
+        var myCenter=new google.maps.LatLng(51.508742,-0.120850);
 
+        function initialize()
+        {
+            var mapProp = {
+                center:myCenter,
+                zoom:5,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
             };
 
-            var map = new google.maps.Map(document.getElementById('map-canvas'),
-                    mapOptions);
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
             var marker=new google.maps.Marker({
                 position:myCenter
             });
+
             marker.setMap(map);
         }
 
-        function loadScript() {
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
-                    '&signed_in=true&callback=initialize';
-            document.body.appendChild(script);
-        }
-
-        window.onload = loadScript;
-
+        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-
 </head>
-<body>
-<div id="map-canvas"></div>
-</body>
 
+<body>
+<div id="googleMap" style="width:500px;height:380px;"></div>
+</body>
 </html>
