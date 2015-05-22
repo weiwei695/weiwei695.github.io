@@ -32,7 +32,7 @@
             });
             google.maps.event.addListener(marker, 'click', toggleBounce);
             google.maps.event.addListener(map, "rightclick", function(event) {
-                var zoom = map.getZoom()
+                var zoom = map.getZoom();
                 setTimeout(function () {
                     if (map.getZoom() != zoom) { // zooms are the same so they didn't double right click.
                         map.setZoom(8); // <-- your code here
@@ -52,6 +52,23 @@
                 marker.setAnimation(google.maps.Animation.BOUNCE);
             }
         }
+        function placeMarker(location){
+            var clickedLocation=new google.maps.LatLng(location);
+            var marker=new google.maps.Marker({
+                position:location,
+                map:map
+            });
+        }
+        google.maps.event.addListener(map, 'click', function(event) {
+            var zoom = map.getZoom();
+            setTimeout(function () {
+                if (map.getZoom() != zoom) { // zooms are the same so they didn't double right click.
+                    placeMarker(event.latLng); // <-- your code here
+                }
+            }, 300)
+        });
+
+
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 </head>
