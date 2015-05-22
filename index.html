@@ -36,7 +36,7 @@
                     map.panTo(marker.getPosition());
                 },3000);
             });
-            google.maps.event.addListener(marker, "dblclick", function(){
+            google.maps.event.addListener(marker, 'dblclick', function(){
                 map.setZoom(18);
                 map.setCenter(marker.getPosition());
             });
