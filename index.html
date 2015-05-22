@@ -52,13 +52,7 @@
                 marker.setAnimation(google.maps.Animation.BOUNCE);
             }
         }
-        function placeMarker(location){
-            var clickedLocation=new google.maps.LatLng(location);
-            var marker=new google.maps.Marker({
-                position:location,
-                map:map
-            });
-        }
+       
         google.maps.event.addListener(map, 'click', function(event) {
             var zoom = map.getZoom();
             setTimeout(function () {
