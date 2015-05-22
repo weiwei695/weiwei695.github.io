@@ -7,19 +7,20 @@
     </style>
 
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDOx-7cjZilQ3j3gCAHwE2wFjOLzz9HBXY">
+            src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDOx-7cjZilQ3j3gCAHwE2wFjOLzz9HBXY">
     </script>
     <script type="text/javascript">
         var myCenter={ lat: -34.397, lng: 150.644};
         var stockholm = new google.maps.LatLng(59.32522, 18.07002);
         var parliament = new google.maps.LatLng(59.327383, 18.06747);
+        var map;
 
         function initialize() {
             var mapOptions = {
                 center: stockholm,
                 zoom: 8
             };
-            var map = new google.maps.Map(document.getElementById('map-canvas'),
+            map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
 
             google.maps.event.addListener(marker, 'click', toggleBounce);
@@ -35,8 +36,8 @@
                 map.setZoom(18);
                 map.setCenter(marker.getPosition());
             });
-            google.maps.event.addListener(map, 'rightclick',function(e) {
-                placeMarker(e.LatLng,map);
+            google.maps.event.addListener(map, 'rightclick',function(e){
+                placeMarker(e.latLng,map);
                 });
         }
         function toggleBounce() {
