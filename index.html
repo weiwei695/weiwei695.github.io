@@ -6,7 +6,7 @@
     <style type="text/css">
         html, body, #map-canvas {height:100% ;margin: 0;padding:0px;}
         #panel {
-           
+
             top: 0px;
             left: 60%;
 
@@ -17,7 +17,19 @@
             opacity: 0.6;
         }
     </style>
+    <style>
+        #directions-panel {
+            height: 100%;
+            float: right;
+            width: 390px;
+            overflow: auto;
+        }
 
+        #map-canvas {
+            margin-right: 400px;
+        }
+        
+    </style>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true">
     </script>
@@ -94,7 +106,7 @@
     <input id="address" type="textbox" value="Sydney, NSW">
     <input type="button" value="Geocode" onclick="codeAddress()">
 </div>
-
+<div id="directions-panel"></div>
 <div id="map-canvas"></div>
 </body>
 </html>
