@@ -31,7 +31,14 @@
                 /*animation:google.maps.Animation.BOUNCE*/
             });
             google.maps.event.addListener(marker, 'click', toggleBounce);
-            
+            google.maps.event.addListener(map, "rightclick", function(event) {
+                var zoom = map.getZoom()
+                setTimeout(function () {
+                    if (map.getZoom() != zoom) { // zooms are the same so they didn't double right click.
+                        map.setZoom(8); // <-- your code here
+                    }
+                }, 300)
+            });
             google.maps.event.addListener(marker, 'dblclick', function(){
                 map.setZoom(18);
                 map.setCenter(marker.getPosition());
