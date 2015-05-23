@@ -54,7 +54,11 @@
                 map.setCenter(marker.getPosition());
             });
             google.maps.event.addListener(map, 'click',function(e){
-                placeMarker(e.latLng,map);
+                var marker=new google.maps.Marker({
+                    position:new google.maps.Latlng(e.latLng.lat(), e.latLng.lng()),
+                    map:map
+                });
+
             });
         }
        /* function toggleBounce() {
@@ -65,13 +69,7 @@
                 marker.setAnimation(google.maps.Animation.BOUNCE);
             }
         }*/
-        function placeMarker(position, map) {
-            var marker = new google.maps.Marker({
-                position: position,
-                map: map
-            });
-            map.panTo(position);
-        }
+
         function codeAddress() {
             var address = document.getElementById('address').value;
             geocoder.geocode( { 'address': address}, function(results, status) {
