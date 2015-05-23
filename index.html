@@ -73,7 +73,7 @@
                 markers[id] = marker; // cache created marker to markers object with id as its key
                 return marker;
             });
-            google.maps.event.addListener(marker,'click',function(e){
+            google.maps.event.addListener(marker,'click',function(id){
                     var current_marker = markers[id];
                     if (current_marker!=null){
                         if(current_marker.getAnimation()!=null){
