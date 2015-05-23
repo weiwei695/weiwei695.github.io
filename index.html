@@ -73,18 +73,17 @@
                 markers[id] = marker; // cache created marker to markers object with id as its key
                 return marker;
             });
-                google.maps.event.addListener(marker,'click',function(e){
-                    marker.getPosition();
-                    if (marker!=null){
-                        if(marker.getAnimation()!=null){
-                            marker.setAnimation(null);
+            google.maps.event.addListener(marker,'click',function(e){
+                    var current_marker = markers[id];
+                    if (current_marker!=null){
+                        if(current_marker.getAnimation()!=null){
+                            current_marker.setAnimation(null);
                         }else{
-                            marker.setAnimation(google.maps.Animation.BOUNCE);
+                            current_marker.setAnimation(google.maps.Animation.BOUNCE);
                         }
                     }
-                    markers[id] = marker; // cache created marker to markers object with id as its key
-                    return marker;
-                });
+
+            });
                 google.maps.event.addListener(marker, 'dblclick', function(){
                     map.setZoom(16);
                     map.setCenter(marker.getPosition());
