@@ -72,7 +72,7 @@
                 });
                 google.maps.event.addListener(marker,'click',function(e){
                     marker.getPosition();
-                    if (e.marker!=null){
+                    if (marker!=null){
                         if(marker.getAnimation()!=null){
                             marker.setAnimation(null);
                         }else{
