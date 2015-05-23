@@ -55,7 +55,7 @@
             });
             google.maps.event.addListener(map, 'click',function(e){
                 var marker=new google.maps.Marker({
-                    position:new google.maps.Latlng(e.latLng.lat(), e.latLng.lng()),
+                    position:new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()),
                     map:map
                 });
 
