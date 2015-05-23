@@ -33,7 +33,7 @@
         var image = 'http://i.stack.imgur.com/KOh5X.png';
         function initialize() {
             geocoder = new google.maps.Geocoder();
-            var latlng = new google.maps.LatLng(-25.363882,131.044922);
+            var latlng = new google.maps.LatLng(31.10, 121.28);
             var mapOptions = {
                 zoom: 8,
                 center: latlng
@@ -69,7 +69,7 @@
 
                 });
                 google.maps.event.addListener(marker, 'dblclick', function(){
-                    map.setZoom(18);
+                    map.setZoom(16);
                     map.setCenter(marker.getPosition());
                 });
             });
