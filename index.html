@@ -121,7 +121,7 @@
 
             google.maps.event.addListener(map, 'click', function (e) {// This event listener will call addMarker() when the map is clicked.
 
-                var marker = new google.maps.Marker({
+                    marker = new google.maps.Marker({
                     position: new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()),
                     map: map,
                     animation: google.maps.Animation.DROP,
