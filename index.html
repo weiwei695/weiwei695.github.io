@@ -48,8 +48,19 @@
                 center: latlng,
                 disableDefaultUI: true,
                 panControl: false,
-                zoomControl: false,
-                scaleControl: true
+                scaleControl: true,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DEFAULT,
+                    mapTypeIds: [
+                        google.maps.MapTypeId.ROADMAP,
+                        google.maps.MapTypeId.TERRAIN
+                    ]
+                },
+                zoomControl: true,
+                zoomControlOptions: {
+                    style: google.maps.ZoomControlStyle.SMALL
+                }
 
             }
 
@@ -90,7 +101,7 @@
                 });
 
                 google.maps.event.addListener(marker, 'dblclick', function () {
-                    map.setZoom(18);
+                    map.setZoom(14);
                     map.setCenter(marker.getPosition());
                 });
             });
