@@ -21,7 +21,7 @@
 
 
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true">
+            src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=drawing">
     </script>
     <script type="text/javascript">
         var myCenter={ lat: -34.397, lng: 150.644};
@@ -29,7 +29,18 @@
         var parliament = new google.maps.LatLng(59.327383, 18.06747);
         var map;
         var geocoder;
-
+        var drawingManager = new google.maps.drawing.DrawingManager({
+                drawingMode: google.maps.drawing.OverlayType.MARKER,
+                drawingControl: false,
+                circleOptions: {
+                  fillColor: '#ffff00',
+                  fillOpacity: 1,
+                  strokeWeight: 5,
+                  clickable: false,
+                  editable: true,
+                  zIndex: 1
+                }
+            });
 
         var markers = [];
 
@@ -69,8 +80,6 @@
         function initialize() {
             geocoder = new google.maps.Geocoder();
 
-
-
             var latlng = new google.maps.LatLng(-34.397, 150.644);
             var mapOptions = {
                 zoom: 8,
@@ -100,6 +109,31 @@
 
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
+
+            
+            drawingManager.setMap(map);
+
+
+
+            google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+              var contentString = "";
+
+              if (event.type == google.maps.drawing.OverlayType.POLYGON) {
+                var vertices = event.overlay.getPath();
+                for(var i = 0; i < vertices.getLength(); i++) {
+                    var xy = vertices.getAt(i);
+                    contentString += 'Coordinate ' + i + ' : ' + xy.lat() + ', ' + xy.lng() + '\n';
+                }
+                alert(contentString);
+                drawingManager.setDrawingMode(null);
+                var newShape = event.overlay;
+                google.maps.event.addListener(newShape, 'click', function() {
+                  setSelection(newShape);
+                });
+                setSelection(newShape);
+              }
+
+            });
 
             var RemoveMarkersControlDiv = document.createElement('div');
             var RemoveMarkersControl = new RemoveMarkers(RemoveMarkersControlDiv, map);
@@ -144,6 +178,15 @@
             });
         }
 
+        function setSelection(shape)
+        {
+            alert("shape selected");
+        }
+
+
+        function drawPolygon() {
+            drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
+        }
 
 
         // Sets the map on all markers in the array.
@@ -200,6 +243,7 @@
     <input onclick="clearMarkers();" type=button value="Hide Markers">
     <input onclick="showMarkers();" type=button value="Show All Markers">
     <input onclick="deleteMarkers();" type=button value="Delete Markers">
+    <input onclick="drawPolygon();" type=button value="Draw Polygon">
 </div>
 <div id="map-canvas"></div>
 
