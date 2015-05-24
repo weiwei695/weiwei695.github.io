@@ -29,9 +29,9 @@
         var parliament = new google.maps.LatLng(59.327383, 18.06747);
         var map;
         var geocoder;
-        var image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
+        var marker_image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
         var marker;
-        var markers = {};
+        var markers = [];
 
         function RemoveMarkers(controlDiv, map) {
 
@@ -119,15 +119,10 @@
 
             var image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
 
-            google.maps.event.addListener(map, 'click', function (e) {
+            google.maps.event.addListener(map, 'click', function (e) {// This event listener will call addMarker() when the map is clicked.
 
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()),
-                    map: map,
-                    icon: image,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP
-                });
+                addMarker(e.latLng);
+
 
                 google.maps.event.addListener(marker, 'click', function () {
                     if (marker != null) {
@@ -145,7 +140,37 @@
                 });
             });
         }
+        // Add a marker to the map and push to the array.
+        function addMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                icon:marker_image,
+                draggable:true
+            });
+            markers.push(marker);
+        }
+        // Sets the map on all markers in the array.
+        function setAllMap(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+        // Removes the markers from the map, but keeps them in the array.
+        function clearMarkers() {
+            setAllMap(null);
+        }
 
+        // Shows any markers currently in the array.
+        function showMarkers() {
+            setAllMap(map);
+        }
+
+        // Deletes all markers in the array by removing references to them.
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
         function codeAddress() {
             var address = document.getElementById('address').value;
             geocoder.geocode( { 'address': address}, function(results, status) {
@@ -174,9 +199,11 @@
 <body>
 <div id="panel">
     <input id="address" type="textbox" value="Sydney, NSW">
-    <input type="button" value="Geocode" onclick="codeAddress()">
+    <input type="button" value="Search" onclick="codeAddress()">
+    <input onclick="clearMarkers();" type=button value="Hide Markers">
+    <input onclick="showMarkers();" type=button value="Show All Markers">
+    <input onclick="deleteMarkers();" type=button value="Delete Markers">
 </div>
-
 <div id="map-canvas"></div>
 
 </body>
