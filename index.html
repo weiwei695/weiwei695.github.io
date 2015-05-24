@@ -104,6 +104,10 @@
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
+            google.maps.event.addListener(marker, 'dblclick', function () {
+                map.setZoom(18);
+                map.setCenter(marker.getPosition());
+            });
         }
 
 
