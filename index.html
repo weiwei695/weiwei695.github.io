@@ -68,11 +68,8 @@
 
         function initialize() {
             geocoder = new google.maps.Geocoder();
-            var RemoveMarkersControlDiv = document.createElement('div');
-            var RemoveMarkersControl = new RemoveMarkers(RemoveMarkersControlDiv, map);
-            map = new google.maps.Map(mapDiv, mapOptions);
-            RemoveMarkersControlDiv.index = 1;
-            map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(RemoveMarkersControlDiv);
+
+
 
             var latlng = new google.maps.LatLng(-34.397, 150.644);
             var mapOptions = {
@@ -100,9 +97,15 @@
 
             }
 
-            map = new google.maps.Map(document.getElementById('map-canvas'),
-                    mapOptions);
-            
+            /*map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);*/
+            var mapDiv = document.getElementById('map-canvas');
+            map = new google.maps.Map(mapDiv, mapOptions);
+            var RemoveMarkersControlDiv = document.createElement('div');
+            var RemoveMarkersControl = new RemoveMarkers(RemoveMarkersControlDiv, map);
+
+            RemoveMarkersControlDiv.index = 1;
+            map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(RemoveMarkersControlDiv);
             
 
             google.maps.event.addListener(map, 'rightclick', function() {
