@@ -61,7 +61,7 @@
             // Setup the click event listeners: simply set the map to
             // Chicago
             google.maps.event.addDomListener(controlUI, 'click', function() {
-                map.setCenter(chicago)
+                map.setCenter(stockholm)
             });
 
         }
@@ -99,8 +99,7 @@
 
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
-            /*var mapDiv = document.getElementById('map-canvas');
-            map = new google.maps.Map(mapDiv, mapOptions);*/
+
             var RemoveMarkersControlDiv = document.createElement('div');
             var RemoveMarkersControl = new RemoveMarkers(RemoveMarkersControlDiv, map);
 
