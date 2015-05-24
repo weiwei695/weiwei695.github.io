@@ -29,8 +29,8 @@
         var parliament = new google.maps.LatLng(59.327383, 18.06747);
         var map;
         var geocoder;
-        var marker_image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
-        var marker;
+        
+
         var markers = [];
 
         function RemoveMarkers(controlDiv, map) {
@@ -165,14 +165,7 @@
             clearMarkers();
             markers = [];
         }
-        function toggleBounce() {
 
-            if (marker.getAnimation() != null) {
-                marker.setAnimation(null);
-            } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
-        }
         function codeAddress() {
             var address = document.getElementById('address').value;
             geocoder.geocode( { 'address': address}, function(results, status) {
