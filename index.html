@@ -45,7 +45,10 @@
                 mapTypeControl: true,
                 mapTypeControlOptions: {
                     style: google.maps.MapTypeControlStyle.Default,
-                    mapTypeIds:google.maps.MapTypeId.TERRAIN,
+                    mapTypeIds:[
+                        google.maps.MapTypeId.ROADMAP,
+                        google.maps.MapTypeId.TERRAIN
+                    ],
                     position: google.maps.ControlPosition.RIGHT_BOTTOM
 
                 },
