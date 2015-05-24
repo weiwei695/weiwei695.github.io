@@ -122,30 +122,31 @@
             google.maps.event.addListener(map, 'click', function (e) {// This event listener will call addMarker() when the map is clicked.
 
                 var marker = new google.maps.Marker({
-                    position: location,
+                    position: new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()),
                     map: map,
                     animation: google.maps.Animation.DROP,
                     icon:marker_image,
                     draggable:true
                 });
+                google.maps.event.addListener(marker, 'click', function () {
+                    if (marker != null) {
+                        if (marker.getAnimation() != null) {
+                            marker.setAnimation(null);
+                        } else {
+                            marker.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    }
+                });
+
+                google.maps.event.addListener(marker, 'dblclick', function () {
+                    map.setZoom(14);
+                    map.setCenter(marker.getPosition());
+                });
                 markers.push(marker);
 
 
             });
-            google.maps.event.addListener(marker, 'click', function () {
-                if (marker != null) {
-                    if (marker.getAnimation() != null) {
-                        marker.setAnimation(null);
-                    } else {
-                        marker.setAnimation(google.maps.Animation.BOUNCE);
-                    }
-                }
-            });
 
-            google.maps.event.addListener(marker, 'dblclick', function () {
-                map.setZoom(14);
-                map.setCenter(marker.getPosition());
-            });
         }
         // Add a marker to the map and push to the array.
 
