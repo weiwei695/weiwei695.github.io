@@ -120,14 +120,15 @@
             var image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
 
             google.maps.event.addListener(map, 'click', function (e) {
-                var marker = new google.maps.Marker({
+                /*var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()),
                     map: map,
                     icon: image,
                     draggable: true,
                     animation: google.maps.Animation.DROP
                 });
-                markers.push(marker);
+                markers.push(marker);*/
+                addMarker(e.latLng);
                 google.maps.event.addListener(marker, 'click', function () {
                     if (marker != null) {
                         if (marker.getAnimation() != null) {
@@ -145,7 +146,17 @@
             });
         }
         // Add a marker to the map and push to the array.
-
+        function addMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                /*position: new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()),*/
+                map: map,
+                icon: image,
+                draggable: true,
+                animation: google.maps.Animation.DROP
+            });
+            markers.push(marker);
+        }
         // Sets the map on all markers in the array.
         function setAllMap(map) {
             for (var i = 0; i < markers.length; i++) {
