@@ -44,14 +44,15 @@
                 scaleControl: true,
                 mapTypeControl: true,
                 mapTypeControlOptions: {
-                    style: google.maps.MapTypeControlStyle.TERRAIN,
-                    mapTypeIds: [
-                        google.maps.MapTypeId.TERRAIN
-                    ]
+                    style: google.maps.MapTypeControlStyle.Default,
+                    mapTypeIds:google.maps.MapTypeId.TERRAIN,
+                    position: google.maps.ControlPosition.RIGHT_BOTTOM
+
                 },
                 zoomControl: true,
                 zoomControlOptions: {
-                    style: google.maps.ZoomControlStyle.SMALL
+                    style: google.maps.ZoomControlStyle.SMALL,
+                    position:google.maps.ControlPosition.RIGHT_CENTER
                 }
 
             }
