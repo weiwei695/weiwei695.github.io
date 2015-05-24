@@ -121,8 +121,14 @@
 
             google.maps.event.addListener(map, 'click', function (e) {// This event listener will call addMarker() when the map is clicked.
 
-                addMarker(e.latLng);
-
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    animation: google.maps.Animation.DROP,
+                    icon:marker_image,
+                    draggable:true
+                });
+                markers.push(marker);
 
 
             });
@@ -142,17 +148,7 @@
             });
         }
         // Add a marker to the map and push to the array.
-        function addMarker(location) {
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                animation: google.maps.Animation.DROP,
-                icon:marker_image,
-                draggable:true
-            });
 
-            markers.push(marker);
-        }
         // Sets the map on all markers in the array.
         function setAllMap(map) {
             for (var i = 0; i < markers.length; i++) {
