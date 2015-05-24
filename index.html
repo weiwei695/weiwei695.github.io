@@ -29,7 +29,7 @@
         var parliament = new google.maps.LatLng(59.327383, 18.06747);
         var map;
         var geocoder;
-        
+
 
         var markers = [];
 
@@ -140,6 +140,7 @@
                     map.setZoom(18);
                     map.setCenter(marker.getPosition());
                 });
+                markers.push(maker);
             });
         }
         // Add a marker to the map and push to the array.
