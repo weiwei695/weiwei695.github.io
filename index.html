@@ -32,14 +32,7 @@
         var image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
         var marker;
         var markers = {};
-
-        var currentId = 0;
-        var uniqueId = function() {
-            return ++currentId;
-        };
-
-
-
+        
         function initialize() {
             geocoder = new google.maps.Geocoder();
             var latlng = new google.maps.LatLng(-34.397, 150.644);
@@ -53,7 +46,6 @@
                 mapTypeControlOptions: {
                     style: google.maps.MapTypeControlStyle.DEFAULT,
                     mapTypeIds: [
-                        google.maps.MapTypeId.ROADMAP,
                         google.maps.MapTypeId.TERRAIN
                     ]
                 },
