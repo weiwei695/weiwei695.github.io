@@ -124,7 +124,7 @@
                 addMarker(e.latLng);
 
 
-                /*google.maps.event.addListener(marker, 'click', function () {
+                google.maps.event.addListener(marker, 'click', function () {
                     if (marker != null) {
                         if (marker.getAnimation() != null) {
                             marker.setAnimation(null);
@@ -132,7 +132,7 @@
                             marker.setAnimation(google.maps.Animation.BOUNCE);
                         }                        
                     }
-                });*/
+                });
 
                 google.maps.event.addListener(marker, 'dblclick', function () {
                     map.setZoom(14);
