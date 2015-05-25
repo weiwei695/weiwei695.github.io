@@ -42,6 +42,7 @@
                 zIndex: 1
             }
         });
+        var Shapes=[];
 
  /*       var markers = [];
 
@@ -130,6 +131,7 @@
                 alert(contentString);
                 drawingManager.setDrawingMode(null);
                 var newShape = event.overlay;
+                  Shapes.push(newShape);
                 google.maps.event.addListener(newShape, 'click', function() {
                   setSelection(newShape);
                 });
@@ -193,7 +195,7 @@
 
         }
         function deletePolygon(){
-            drawingManager.setMap(null);
+            Shapes.setMap(null);
         }
 
        /* // Sets the map on all markers in the array.
