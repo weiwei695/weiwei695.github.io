@@ -187,7 +187,9 @@
         function drawPolygon() {
             drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
         }
-
+        function deletePolygon(){
+            drawingManager.setMap(null);
+        }
 
        /* // Sets the map on all markers in the array.
         function setAllMap(map) {
@@ -240,8 +242,8 @@
 <div id="panel">
     <input id="address" type="textbox" value="Sydney, NSW">
     <input type="button" value="Search" onclick="codeAddress()">
-
     <input onclick="drawPolygon();" type=button value="Draw Polygon">
+    <input onclick="deletePolygon();" type=button value="Delete Polygon">
 </div>
 <div id="map-canvas"></div>
 
