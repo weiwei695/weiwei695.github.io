@@ -100,7 +100,7 @@
 
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
-
+            drawingManager.setMap(map);
             
 
 
@@ -190,7 +190,7 @@
                 }
             });
             drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
-            drawingManager.setMap(map);
+           
         }
         function deletePolygon(){
             drawingManager.setMap(null);
