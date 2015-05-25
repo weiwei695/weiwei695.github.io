@@ -30,13 +30,13 @@
         var map;
         var geocoder;
         var drawingManager = new google.maps.drawing.DrawingManager({
-               /* drawingMode: google.maps.drawing.OverlayType.MARKER,*/
+                drawingMode: google.maps.drawing.OverlayType.POLYGON,
                 drawingControl: false,
                 circleOptions: {
                   fillColor: '#ffff00',
                   fillOpacity: 1,
                   strokeWeight: 5,
-                  clickable: false,
+                  clickable: true,
                   editable: true,
                   zIndex: 1
                 }
