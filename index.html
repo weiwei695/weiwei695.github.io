@@ -96,25 +96,13 @@
 
             };
 
-            var drawingManager = new google.maps.drawing.DrawingManager({
-                drawingMode: google.maps.drawing.OverlayType.POLYGON,
-                drawingControl: false,
-                circleOptions: {
-                    fillColor: '#ffff00',
-                    fillOpacity: 1,
-                    strokeWeight: 5,
-                    clickable: true,
-                    editable: true,
-                    draggable: true,
-                    zIndex: 1
-                }
-            });
+
 
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
 
             
-            drawingManager.setMap(map);
+
 
 
 
@@ -188,7 +176,21 @@
 
 
         function drawPolygon() {
+            var drawingManager = new google.maps.drawing.DrawingManager({
+                drawingMode: google.maps.drawing.OverlayType.POLYGON,
+                drawingControl: false,
+                circleOptions: {
+                    fillColor: '#ffff00',
+                    fillOpacity: 1,
+                    strokeWeight: 5,
+                    clickable: true,
+                    editable: true,
+                    draggable: true,
+                    zIndex: 1
+                }
+            });
             drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
+            drawingManager.setMap(map);
         }
         function deletePolygon(){
             drawingManager.setMap(null);
