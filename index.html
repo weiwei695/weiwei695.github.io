@@ -29,19 +29,7 @@
         var parliament = new google.maps.LatLng(59.327383, 18.06747);
         var map;
         var geocoder;
-        var drawingManager = new google.maps.drawing.DrawingManager({
-                drawingMode: google.maps.drawing.OverlayType.POLYGON,
-                drawingControl: false,
-                circleOptions: {
-                  fillColor: '#ffff00',
-                  fillOpacity: 1,
-                  strokeWeight: 5,
-                  clickable: true,
-                  editable: true,
-                  draggable: true,
-                  zIndex: 1
-                }
-            });
+
 
  /*       var markers = [];
 
@@ -107,6 +95,20 @@
                 }
 
             };
+
+            var drawingManager = new google.maps.drawing.DrawingManager({
+                drawingMode: google.maps.drawing.OverlayType.POLYGON,
+                drawingControl: false,
+                circleOptions: {
+                    fillColor: '#ffff00',
+                    fillOpacity: 1,
+                    strokeWeight: 5,
+                    clickable: true,
+                    editable: true,
+                    draggable: true,
+                    zIndex: 1
+                }
+            });
 
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
