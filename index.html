@@ -42,7 +42,7 @@
                 }
             });
 
-        var markers = [];
+ /*       var markers = [];
 
         function RemoveMarkers(controlDiv, map) {
 
@@ -76,7 +76,7 @@
             });
 
         }
-
+*/
         function initialize() {
             geocoder = new google.maps.Geocoder();
 
@@ -135,11 +135,11 @@
 
             });
 
-            var RemoveMarkersControlDiv = document.createElement('div');
+            /*var RemoveMarkersControlDiv = document.createElement('div');
             var RemoveMarkersControl = new RemoveMarkers(RemoveMarkersControlDiv, map);
 
             RemoveMarkersControlDiv.index = 1;
-            map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(RemoveMarkersControlDiv);
+            map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(RemoveMarkersControlDiv);*/
             
 
             google.maps.event.addListener(map, 'rightclick', function() {
@@ -151,9 +151,9 @@
                 }, 300)
             });
 
-            var image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
+            /*var image = 'https://raw.githubusercontent.com/weiwei695/weiwei695.github.io/master/icons/thumb_131072_tree_specie_icon_small.png';
 
-            google.maps.event.addListener(map, 'click', function (e) {
+              google.maps.event.addListener(map, 'click', function (e) {
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()),
                     map: map,
@@ -175,7 +175,7 @@
                     map.setZoom(18);
                     map.setCenter(marker.getPosition());
                 });
-            });
+            });*/
         }
 
         function setSelection(shape)
@@ -189,7 +189,7 @@
         }
 
 
-        // Sets the map on all markers in the array.
+       /* // Sets the map on all markers in the array.
         function setAllMap(map) {
             for (var i = 0; i < markers.length; i++) {
                 markers[i].setMap(map);
@@ -210,7 +210,7 @@
             clearMarkers();
             markers = [];
         }
-
+*/
         function codeAddress() {
             var address = document.getElementById('address').value;
             geocoder.geocode( { 'address': address}, function(results, status) {
@@ -240,9 +240,7 @@
 <div id="panel">
     <input id="address" type="textbox" value="Sydney, NSW">
     <input type="button" value="Search" onclick="codeAddress()">
-    <input onclick="clearMarkers();" type=button value="Hide Markers">
-    <input onclick="showMarkers();" type=button value="Show All Markers">
-    <input onclick="deleteMarkers();" type=button value="Delete Markers">
+
     <input onclick="drawPolygon();" type=button value="Draw Polygon">
 </div>
 <div id="map-canvas"></div>
