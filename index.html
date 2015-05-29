@@ -17,12 +17,50 @@
             border: 2px solid #00CC00;
             opacity: 0.4;
         }
+        #hand_b {
+            width:31px;
+            height:31px;
+            background-image: url(http://google.com/mapfiles/ms/t/Bsu.png);
+        }
+        #hand_b.selected {
+            background-image: url(http://google.com/mapfiles/ms/t/Bsd.png);
+        }
+
+        #placemark_b {
+            width:31px;
+            height:31px;
+            background-image: url(http://google.com/mapfiles/ms/t/Bmu.png);
+        }
+        #placemark_b.selected {
+            background-image: url(http://google.com/mapfiles/ms/t/Bmd.png);
+        }
+
+        #line_b {
+            width:31px;
+            height:31px;
+            background-image: url(http://google.com/mapfiles/ms/t/Blu.png);
+        }
+        #line_b.selected {
+            background-image: url(http://google.com/mapfiles/ms/t/Bld.png);
+        }
+
+        #shape_b {
+            width:31px;
+            height:31px;
+            background-image: url(http://google.com/mapfiles/ms/t/Bpu.png);
+        }
+        #shape_b.selected {
+            background-image: url(http://google.com/mapfiles/ms/t/Bpd.png);
+        }
     </style>
 
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=drawing">
     </script>
+    <script type="text/javascript" src="lib/mapToolbar.js">
+    </script>
+
     <script type="text/javascript">
         var myCenter={ lat: -34.397, lng: 150.644};
         var stockholm = new google.maps.LatLng(59.32522, 18.07002);
@@ -251,6 +289,31 @@
     <input type="button" value="Search" onclick="codeAddress()">
     <input onclick="drawPolygon();" type=button value="Draw Polygon">
     <input onclick="deletePolygon();" type=button value="Delete Polygon">
+    
+    <td><div id="hand_b"
+             onclick="MapToolbar.stopEditing()"/></td>
+    <td><div id="placemark_b"
+             onclick="MapToolbar.initFeature('placemark')"/></td>
+    <td><div id="line_b"
+             onclick="MapToolbar.initFeature('line')"/></td>
+    <td><div id="shape_b"
+             onclick="MapToolbar.initFeature('shape')"/></td>
+    <td><div id="undo"
+             onclick="MapToolbar.undo()"/><img src="undo.png" /></td>
+    </tr></table>
+
+    <input type="hidden" id="featuredetails" rows=2>
+    <p>clik on an icon to add a feature.
+        click on the 'hand' icon to stop line edition or shape edition
+        click on the name of the feature on the sidebar to edit it again.
+    </p>
+    </input>
+
+    <table id ="featuretable">
+        <tbody id="featuretbody"></tbody>
+    </table>
+    </td>
+    <td>
 </div>
 <div id="map-canvas"></div>
 
