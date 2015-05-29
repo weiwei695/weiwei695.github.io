@@ -58,7 +58,7 @@
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=drawing">
     </script>
-    <script type="text/javascript" src="lib/mapToolbar.js">
+    <script type="text/javascript" src="mapToolbar.js">
     </script>
 
     <script type="text/javascript">
@@ -289,7 +289,7 @@
     <input type="button" value="Search" onclick="codeAddress()">
     <input onclick="drawPolygon();" type=button value="Draw Polygon">
     <input onclick="deletePolygon();" type=button value="Delete Polygon">
-    
+
     <td><div id="hand_b"
              onclick="MapToolbar.stopEditing()"/></td>
     <td><div id="placemark_b"
@@ -316,6 +316,8 @@
     <td>
 </div>
 <div id="map-canvas"></div>
-
+<script type="text/javascript">
+    initialize();
+</script>
 </body>
 </html>
