@@ -17,16 +17,12 @@
             border: 2px solid #00CC00;
             opacity: 0.4;
         }
-
     </style>
 
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=drawing">
     </script>
-
-    
-
     <script type="text/javascript">
         var myCenter={ lat: -34.397, lng: 150.644};
         var stockholm = new google.maps.LatLng(59.32522, 18.07002);
@@ -255,8 +251,8 @@
     <input type="button" value="Search" onclick="codeAddress()">
     <input onclick="drawPolygon();" type=button value="Draw Polygon">
     <input onclick="deletePolygon();" type=button value="Delete Polygon">
-
-<div id="map-canvas"></div>
 </div>
+<div id="map-canvas"></div>
+
 </body>
 </html>
